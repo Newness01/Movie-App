@@ -1,21 +1,19 @@
-import React from 'react'
-import MovieCard from './MovieCard'
+import MovieCard from "./MovieCard";
 
-const MovieList = ({movies, filter}) => {
-    const filteredMovies = movies.filter(
-        (movie) =>
-            movie.title.toLowerCase().includes(filter.title.toLowerCase()) &&
-        movie.rating >= filter.rating
-    );
+const MovieList = ({ movies, filter }) => {
+  const filteredMovies = movies.filter(
+    (movie) =>
+      movie.title.toLowerCase().includes(filter.title.toLowerCase()) &&
+      movie.rating >= filter.rating
+  );
 
   return (
-    <div>
-{filteredMovies.map((movie, index) => (
-    <MovieCard key={index} movie = {movie}/>
-))}
-
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      {filteredMovies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))}
     </div>
   );
 };
 
-export default MovieList
+export default MovieList;
